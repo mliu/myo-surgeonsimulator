@@ -50,24 +50,24 @@ function onPeriodic()
     PITCH_AVG = pitch_running_avg / PITCH_COUNT
   end
 
-  -- if not (PITCH_AVG == 0) then
-  --   if myo.getPitch() > PITCH_AVG + .5 then
-  --     myo.debug("up")
-  --   elseif myo.getPitch() < PITCH_AVG - .5 then
-  --     myo.debug("down")     
-  --   end
+  if not (PITCH_AVG == 0) then
+    if myo.getPitch() > PITCH_AVG + .5 then
+      myo.debug("up")
+    elseif myo.getPitch() < PITCH_AVG - .5 then
+      myo.debug("down")     
+    end
 
-  --   if myo.getYaw() > YAW_AVG + .3 then
-  --     myo.debug("right")
-  --   elseif myo.getYaw() < YAW_AVG - .2 then
-  --     myo.debug("left")
-  --   end
-  -- end      
-  if myo.getRoll() > ROLL_AVG + .3 then
-    myo.debug("roll right")
-  elseif myo.getRoll() < ROLL_AVG - .3 then
-    myo.debug("roll left")
-  end   
+    if myo.getYaw() > YAW_AVG + .3 then
+      myo.debug("right")
+    elseif myo.getYaw() < YAW_AVG - .2 then
+      myo.debug("left")
+    end
+  end      
+  -- if myo.getRoll() > ROLL_AVG + .3 then
+  --   myo.debug("roll right")
+  -- elseif myo.getRoll() < ROLL_AVG - .3 then
+  --   myo.debug("roll left")
+  -- end   
 end
 
 function onForegroundWindowChange(app, title)

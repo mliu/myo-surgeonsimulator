@@ -37,22 +37,22 @@ return
 
 ^!0::
 ;MouseMove, 1, 0, 10, R
-DllCall("mouse_event", uint, 1, int, 75, int, 0)
+DllCall("mouse_event", uint, 1, int, 35, int, 0)
 return
 
 ^!9::
 ;MouseMove, -1, 0, 10, R
-DllCall("mouse_event", uint, 1, int, -75, int, 0)
+DllCall("mouse_event", uint, 1, int, -35, int, 0)
 return
 
 ^!8::
 ;MouseMove, 0, 1, 10, R
-DllCall("mouse_event", uint, 1, int, 0, int, -75)
+DllCall("mouse_event", uint, 1, int, 0, int, -35)
 return
 
 ^!7::
 ;MouseMove, 0, -1, 10, R
-DllCall("mouse_event", uint, 1, int, 0, int, 75)
+DllCall("mouse_event", uint, 1, int, 0, int, 35)
 return
 
 ; Note: From now on whenever you run AutoHotkey directly, this script

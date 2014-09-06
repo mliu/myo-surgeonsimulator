@@ -51,7 +51,9 @@ function onPeriodic()
     myo.vibrate("medium")
   end
 
-  if (now - delay) > ACTION_PERIOD then 
+  myo.keyboard("left_control", "up")
+  myo.keyboard("left_alt", "up")
+  -- if (now - delay) > ACTION_PERIOD then 
     if not (PITCH_AVG == 0) then
       myo.debug("3")
       if myo.getPitch() > PITCH_AVG + .5 then
@@ -83,34 +85,34 @@ function onPeriodic()
       end
     end   
 
-    if myo.getRoll() > ROLL_AVG + .3 then
-      myo.keyboard("left_win", "down")
-      myo.keyboard("3", "press")
-      myo.keyboard("left_win", "up")
-      myo.keyboard("left_control", "down")
-      myo.keyboard("left_alt", "down")
-      myo.keyboard("0", "press")
-      myo.keyboard("left_control", "up")
-      myo.keyboard("left_alt", "up")
-      myo.keyboard("left_win", "down")
-      myo.keyboard("4", "press")
-      myo.keyboard("left_win", "up")
-    elseif myo.getRoll() < ROLL_AVG - .3 then
-      myo.keyboard("left_win", "down")
-      myo.keyboard("3", "press")
-      myo.keyboard("left_win", "up")
-      myo.keyboard("left_control", "down")
-      myo.keyboard("left_alt", "down")
-      myo.keyboard("9", "press")
-      myo.keyboard("left_control", "up")
-      myo.keyboard("left_alt", "up")
-      myo.keyboard("left_win", "down")
-      myo.keyboard("4", "press")
-      myo.keyboard("left_win", "up")
-    end
+    -- if myo.getRoll() > ROLL_AVG + .3 then
+    --   myo.keyboard("left_win", "down")
+    --   myo.keyboard("3", "press")
+    --   myo.keyboard("left_win", "up")
+    --   myo.keyboard("left_control", "down")
+    --   myo.keyboard("left_alt", "down")
+    --   myo.keyboard("0", "press")
+    --   myo.keyboard("left_control", "up")
+    --   myo.keyboard("left_alt", "up")
+    --   myo.keyboard("left_win", "down")
+    --   myo.keyboard("4", "press")
+    --   myo.keyboard("left_win", "up")
+    -- elseif myo.getRoll() < ROLL_AVG - .3 then
+    --   myo.keyboard("left_win", "down")
+    --   myo.keyboard("3", "press")
+    --   myo.keyboard("left_win", "up")
+    --   myo.keyboard("left_control", "down")
+    --   myo.keyboard("left_alt", "down")
+    --   myo.keyboard("9", "press")
+    --   myo.keyboard("left_control", "up")
+    --   myo.keyboard("left_alt", "up")
+    --   myo.keyboard("left_win", "down")
+    --   myo.keyboard("4", "press")
+    --   myo.keyboard("left_win", "up")
+    -- end
 
-    delay = myo.getTimeMilliseconds()
-  end
+    -- delay = myo.getTimeMilliseconds()
+  -- end
 end
 
 function onForegroundWindowChange(app, title)
