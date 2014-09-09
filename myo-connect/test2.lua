@@ -4,7 +4,7 @@ function onPoseEdge(pose, edge)
 end
 
 function onPeriodic()
-   myo.debug(myo.getYaw())
+   myo.debug(myo.getPitch())
 end
 
 function onForegroundWindowChange(app, title)

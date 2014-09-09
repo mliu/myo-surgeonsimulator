@@ -1,5 +1,6 @@
 scriptId = 'com.michaelyliu.test'
 
+
 defaultPitch = 0
 begin = myo.getTimeMilliseconds()
 delay = 0
@@ -34,22 +35,46 @@ function onPoseEdge(pose, edge)
       grab = false
     end
   end
+
+  if pose == "thumbToPinky" and edge == "on" then
+    begin = myo.getTimeMilliseconds()
+    PITCH_AVG = 0
+    myo.vibrate("short")
+    ROLL_AVG = myo.getRoll()
+    PITCH_AVG = myo.getPitch()
+    YAW_AVG = myo.getYaw()
+  end
+
+  if pose == "waveIn" and edge == "on" then
+    myo.keyboard("left_control", "down")
+    myo.keyboard("left_alt", "down")
+    myo.keyboard("1", "press")
+    myo.keyboard("left_control", "up")
+    myo.keyboard("left_alt", "up")
+  end
+
+  if pose == "waveOut" and edge == "on" then
+    myo.keyboard("left_control", "down")
+    myo.keyboard("left_alt", "down")
+    myo.keyboard("2", "press")
+    myo.keyboard("left_control", "up")
+    myo.keyboard("left_alt", "up")
+  end
 end
 
 function onPeriodic()
-  local now = myo.getTimeMilliseconds()
-  if (now - begin) < SHUTTLE_PERIOD then
-    pitch_running_avg = pitch_running_avg + myo.getPitch()
-    yaw_running_avg = yaw_running_avg + myo.getYaw()
-    roll_running_avg = roll_running_avg + myo.getRoll()
-    PITCH_COUNT = PITCH_COUNT + 1
-  elseif PITCH_AVG == 0 then
-    delay = myo.getTimeMilliseconds()
-    ROLL_AVG = roll_running_avg / PITCH_COUNT
-    YAW_AVG = yaw_running_avg / PITCH_COUNT
-    PITCH_AVG = pitch_running_avg / PITCH_COUNT
-    myo.vibrate("medium")
-  end
+  -- local now = myo.getTimeMilliseconds()
+  -- if (now - begin) < SHUTTLE_PERIOD then
+  --   pitch_running_avg = pitch_running_avg + myo.getPitch()
+  --   yaw_running_avg = yaw_running_avg + myo.getYaw()
+  --   roll_running_avg = roll_running_avg + myo.getRoll()
+  --   PITCH_COUNT = PITCH_COUNT + 1
+  -- elseif PITCH_AVG == 0 then
+  --   delay = myo.getTimeMilliseconds()
+    -- ROLL_AVG = roll_running_avg / PITCH_COUNT
+    -- YAW_AVG = yaw_running_avg / PITCH_COUNT
+    -- PITCH_AVG = pitch_running_avg / PITCH_COUNT
+  -- end
 
   myo.keyboard("left_control", "up")
   myo.keyboard("left_alt", "up")
